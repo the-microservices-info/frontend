@@ -19,6 +19,6 @@ export default {
 
 <style lang="postcss" scoped>
 .card-bg {
-  background-color: #f0f0f0;
+  background-color: #f6f6f6;
 }
 </style>

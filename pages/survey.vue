@@ -5,19 +5,21 @@
     </h1>
 
     <Introduction />
-
     <BackgroundExperience />
+    <DatabasePerService />
   </div>
 </template>
 
 <script>
 import Introduction from '@/components/survey/introduction.vue'
 import BackgroundExperience from '@/components/survey/background_experience.vue'
+import DatabasePerService from '@/components/survey/database_per_service.vue'
 
 export default {
   components: {
     Introduction,
     BackgroundExperience,
+    DatabasePerService,
   },
 }
 </script>
