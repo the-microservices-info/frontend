@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div v-if="!isUsed">
+    <div v-if="isUsed">
       <SubsectionDivider />
 
       <div class="flex flex-col justify-around">
