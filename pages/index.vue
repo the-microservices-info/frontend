@@ -7,7 +7,9 @@
     </h1>
 
     <div class="mt-10 flex flex-col justify-center items-center">
-      <nuxt-link to="/" class="btn btn-primary">Take the Survey</nuxt-link>
+      <nuxt-link to="/survey" class="btn btn-primary">
+        Take the Survey
+      </nuxt-link>
       <nuxt-link to="/" class="btn btn-secondary">
         Learn more about microservices
       </nuxt-link>
