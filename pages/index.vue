@@ -1,68 +1,41 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">the-microservices-info_frontend</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div class="container mx-auto h-screen flex flex-col justify-center">
+    <h1
+      class="mb-10 lg:mb-20 font-serif lg:w-1/3 mx-auto text-center font-bold text-5xl lg:text-6xl"
+    >
+      The Microservices Info
+    </h1>
+
+    <div class="mt-10 flex flex-col justify-center items-center">
+      <nuxt-link to="/" class="btn btn-primary">Take the Survey</nuxt-link>
+      <nuxt-link to="/" class="btn btn-secondary">
+        Learn more about microservices
+      </nuxt-link>
     </div>
   </div>
 </template>
 
-<script>
-export default {}
-</script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+<style lang="postcss" scoped>
+.btn {
+  @apply py-2 px-4 mx-4;
+  @apply text-center;
+  @apply rounded;
+  @apply text-sm;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.btn-primary {
+  @apply bg-gray-600 text-white;
+  @apply shadow-md;
+  @apply text-lg font-bold;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.btn-secondary {
+  @apply text-gray-600 underline;
 }
 
-.links {
-  padding-top: 15px;
+@screen lg {
+  .btn {
+    @apply w-64;
+  }
 }
 </style>
