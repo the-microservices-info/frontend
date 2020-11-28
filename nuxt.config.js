@@ -35,7 +35,9 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: process.env.BACKEND_URL || 'http://localhost:3030',
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},

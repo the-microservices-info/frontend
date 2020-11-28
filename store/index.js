@@ -20,6 +20,18 @@ export const getters = {
   formValid(s) {
     return Object.keys(s).every((section) => s[section].isValid)
   },
+  answers(s) {
+    return {
+      introduction: {
+        allowed: s.introduction.questions.allowed,
+      },
+      backgroundExperience: {
+        knowledgeLevel: s.backgroundExperience.questions.knowledgeLevel,
+        knowledgeSource: s.backgroundExperience.questions.knowledgeSource,
+        years: s.backgroundExperience.questions.years,
+      },
+    }
+  },
 }
 
 export const mutations = {

@@ -29,10 +29,13 @@ export default {
     BackgroundExperience,
     DatabasePerService,
   },
+  data: () => ({
+    submitting: false,
+  }),
   computed: {
-    ...mapGetters(['formValid']),
+    ...mapGetters(['formValid', 'answers']),
     btnDisabled() {
-      return !this.formValid
+      return this.submitting || !this.formValid
     },
     btnClasses() {
       const base = ['btn', 'btn-primary']
@@ -40,8 +43,14 @@ export default {
     },
   },
   methods: {
-    submit() {
-      console.log('submit')
+    async submit() {
+      try {
+        this.submitting = true
+        await this.$axios.$post('/answers', this.answers)
+      } catch (e) {
+      } finally {
+        this.submitting = false
+      }
     },
   },
 }
