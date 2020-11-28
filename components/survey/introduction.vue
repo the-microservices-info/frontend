@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   data: () => ({
     introduction: [
@@ -44,6 +46,23 @@ For the purpose of this survey, define a system (the whole system, not a service
 
     allowed: undefined,
   }),
+
+  watch: {
+    allowed(newValue) {
+      this.updatePermission(newValue)
+
+      if (this.allowed !== undefined) this.validate()
+      else this.invalidate()
+    },
+  },
+
+  methods: {
+    ...mapMutations({
+      updatePermission: 'setIntroductionAllow',
+      validate: 'setIntroductionValid',
+      invalidate: 'setIntroductionInvalid',
+    }),
+  },
 }
 </script>
 

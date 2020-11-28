@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import Introduction from '@/components/survey/introduction.vue'
 import BackgroundExperience from '@/components/survey/background_experience.vue'
 import DatabasePerService from '@/components/survey/database_per_service.vue'
@@ -28,8 +30,9 @@ export default {
     DatabasePerService,
   },
   computed: {
+    ...mapGetters(['formValid']),
     btnDisabled() {
-      return !false
+      return !this.formValid
     },
     btnClasses() {
       const base = ['btn', 'btn-primary']
