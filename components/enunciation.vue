@@ -1,11 +1,8 @@
 <template>
-  <div class="flex flex-col justify-around">
-    <Enunciation :question="question" :required="required" />
-
-    <div class="mt-2">
-      <slot></slot>
-    </div>
-  </div>
+  <p>
+    {{ question }}
+    <span v-if="required" class="text-red-500">*</span>
+  </p>
 </template>
 
 <script>

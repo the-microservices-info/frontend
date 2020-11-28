@@ -1,11 +1,10 @@
 <template>
   <SectionCard title="Background Experience">
-    <div class="flex flex-col justify-around">
-      <Question
-        question="From 1 to 5, how do you classify your knowledge and experience with MSA?"
-        required
-      />
-      <div class="mt-2 flex justify-between">
+    <Question
+      question="From 1 to 5, how do you classify your knowledge and experience with MSA?"
+      required
+    >
+      <div class="flex justify-between">
         <div class="self-end">low</div>
         <div v-for="i in 5" :key="i" class="flex flex-col justify-between">
           <label :for="scaleID(i)">{{ i }}</label>
@@ -13,44 +12,32 @@
         </div>
         <div class="self-end">high</div>
       </div>
-    </div>
+    </Question>
 
     <SubsectionDivider />
 
-    <div class="flex flex-col">
-      <Question
-        question="What was your main source of knowledge about microservices?"
-        required
-      />
-
-      <div class="mt-2 flex flex-col">
-        <div
-          v-for="source in sources"
-          :key="source"
-          class="flex items-baseline my-2"
-        >
-          <input
-            :id="source"
-            v-model="mainSource"
-            type="radio"
-            :value="source"
-          />
-          <label :for="source" class="ml-2">{{ source }}</label>
-        </div>
+    <Question
+      question="What was your main source of knowledge about microservices?"
+      required
+    >
+      <div
+        v-for="source in sources"
+        :key="source"
+        class="flex items-baseline my-2"
+      >
+        <input :id="source" v-model="mainSource" type="radio" :value="source" />
+        <label :for="source" class="ml-2">{{ source }}</label>
       </div>
-    </div>
+    </Question>
 
     <SubsectionDivider />
 
-    <div class="flex flex-col">
-      <Question question="How long have you been working with MSA?" required />
-      <div class="mt-2 flex flex-col">
-        <div v-for="year in years" :key="year" class="flex items-baseline my-2">
-          <input :id="year" v-model="yearsWorking" type="radio" :value="year" />
-          <label :for="year" class="ml-2">{{ year }}</label>
-        </div>
+    <Question question="How long have you been working with MSA?" required>
+      <div v-for="year in years" :key="year" class="flex items-baseline my-2">
+        <input :id="year" v-model="yearsWorking" type="radio" :value="year" />
+        <label :for="year" class="ml-2">{{ year }}</label>
       </div>
-    </div>
+    </Question>
   </SectionCard>
 </template>
 

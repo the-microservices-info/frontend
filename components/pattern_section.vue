@@ -4,66 +4,56 @@
 
     <SubsectionDivider />
 
-    <div class="flex flex-col justify-around">
-      <Question question="Did you know this pattern?" required />
-
-      <div class="mt-2">
-        <div v-for="{ id, label } in knowledgeTypes" :key="id" class="option">
-          <input :id="id" v-model="knowledgeType" type="radio" :value="label" />
-          <label :for="id">{{ label }}</label>
-        </div>
+    <Question question="Did you know this pattern?" required>
+      <div v-for="{ id, label } in knowledgeTypes" :key="id" class="option">
+        <input :id="id" v-model="knowledgeType" type="radio" :value="label" />
+        <label :for="id">{{ label }}</label>
       </div>
-    </div>
+    </Question>
 
     <SubsectionDivider />
 
-    <div class="flex flex-col justify-around">
-      <Question question="Is this pattern adopted in your system?" required />
-
-      <div class="mt-2">
-        <div class="option">
-          <input id="used-true" v-model="isUsed" type="radio" :value="true" />
-          <label for="used-true">Yes</label>
-        </div>
-        <div class="option">
-          <input id="used-false" v-model="isUsed" type="radio" :value="false" />
-          <label for="used-false">No</label>
-        </div>
+    <Question question="Is this pattern adopted in your system?" required>
+      <div class="option">
+        <input id="used-true" v-model="isUsed" type="radio" :value="true" />
+        <label for="used-true">Yes</label>
       </div>
-    </div>
+      <div class="option">
+        <input id="used-false" v-model="isUsed" type="radio" :value="false" />
+        <label for="used-false">No</label>
+      </div>
+    </Question>
 
-    <div v-if="isUsed">
+    <div v-if="!isUsed">
       <SubsectionDivider />
 
-      <div class="flex flex-col justify-around">
-        <Question question="Classify the statements below" required />
-      </div>
-
-      <div
-        v-for="{ statement, stid } in statements"
-        :key="stid"
-        class="mt-2 mb-4 lg:w-3/4 lg:mx-auto flex flex-col justify-between"
-      >
-        <p class="italic text-sm font-bold">
-          {{ statement }}
-        </p>
-        <div class="flex justify-between items-end">
-          <div
-            v-for="{ label, id } in agreements"
-            :key="label"
-            class="w-1/5 flex flex-col items-center"
-          >
-            <label class="text-xs text-center mb-2" :for="id">
-              {{ label }}
-            </label>
-            <input
-              :id="getId(stid, id)"
-              :v-model="getModel(stid, id)"
-              type="radio"
-            />
+      <Question question="Classify the statements below" required>
+        <div
+          v-for="{ statement, stid } in statements"
+          :key="stid"
+          class="mt-2 mb-4 lg:w-3/4 lg:mx-auto flex flex-col justify-between"
+        >
+          <p class="italic text-sm font-bold">
+            {{ statement }}
+          </p>
+          <div class="flex justify-between items-end">
+            <div
+              v-for="{ label, id } in agreements"
+              :key="label"
+              class="w-1/5 flex flex-col items-center"
+            >
+              <label class="text-xs text-center mb-2" :for="id">
+                {{ label }}
+              </label>
+              <input
+                :id="getId(stid, id)"
+                :v-model="getModel(stid, id)"
+                type="radio"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </Question>
     </div>
   </div>
 </template>

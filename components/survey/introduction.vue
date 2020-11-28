@@ -8,33 +8,25 @@
       {{ section }}
     </p>
 
-    <div class="flex flex-col justify-around">
-      <Question
-        question="Do you allow the use of your answers for that purpose?"
-        required
-      />
-      <div class="mt-2">
-        <div class="option">
-          <input
-            id="allowed-true"
-            v-model="allowed"
-            type="radio"
-            value="true"
-          />
-          <label for="allowed-true">Yes</label>
-        </div>
-
-        <div class="option">
-          <input
-            id="allowed-false"
-            v-model="allowed"
-            type="radio"
-            value="false"
-          />
-          <label for="allowed-false">No</label>
-        </div>
+    <Question
+      question="Do you allow the use of your answers for that purpose?"
+      required
+    >
+      <div class="option">
+        <input id="allowed-true" v-model="allowed" type="radio" value="true" />
+        <label for="allowed-true">Yes</label>
       </div>
-    </div>
+
+      <div class="option">
+        <input
+          id="allowed-false"
+          v-model="allowed"
+          type="radio"
+          value="false"
+        />
+        <label for="allowed-false">No</label>
+      </div>
+    </Question>
   </SectionCard>
 </template>
 
