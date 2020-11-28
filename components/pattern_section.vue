@@ -29,29 +29,14 @@
 
       <Question question="Classify the statements below" required>
         <div
-          v-for="{ statement, stid } in statements"
-          :key="stid"
+          v-for="({ statement }, i) in statements"
+          :key="statement"
           class="mt-2 mb-4 lg:w-3/4 lg:mx-auto flex flex-col justify-between"
         >
-          <p class="italic text-sm font-bold">
-            {{ statement }}
-          </p>
-          <div class="flex justify-between items-end">
-            <div
-              v-for="{ label, id } in agreements"
-              :key="label"
-              class="w-1/5 flex flex-col items-center"
-            >
-              <label class="text-xs text-center mb-2" :for="id">
-                {{ label }}
-              </label>
-              <input
-                :id="getId(stid, id)"
-                :v-model="getModel(stid, id)"
-                type="radio"
-              />
-            </div>
-          </div>
+          <StatementAgreement
+            :statement="statement"
+            @select="statements[i].value = $event"
+          />
         </div>
       </Question>
     </div>
@@ -80,77 +65,26 @@ export default {
 
     isUsed: undefined,
 
-    initial_sd: undefined,
-    initial_d: undefined,
-    initial_n: undefined,
-    initial_a: undefined,
-    initial_sa: undefined,
-    refactoring_sd: undefined,
-    refactoring_d: undefined,
-    refactoring_n: undefined,
-    refactoring_a: undefined,
-    refactoring_sa: undefined,
-    various_sd: undefined,
-    various_d: undefined,
-    various_n: undefined,
-    various_a: undefined,
-    various_sa: undefined,
-    beneficial_sd: undefined,
-    beneficial_d: undefined,
-    beneficial_n: undefined,
-    beneficial_a: undefined,
-    beneficial_sa: undefined,
     statements: [
       {
-        stid: 'initial',
         statement:
           'The pattern was present in the initial versions of the implementation',
+        value: undefined,
       },
       {
-        stid: 'refactoring',
         statement: 'The pattern was implemented via refactoring',
+        value: undefined,
       },
       {
-        stid: 'various',
         statement: 'The pattern is implemented in various parts of the system',
+        value: undefined,
       },
       {
-        stid: 'beneficial',
         statement: 'The usage of the pattern was beneficial to the system',
-      },
-    ],
-    agreements: [
-      {
-        label: 'Strongly disagree',
-        id: 'sd',
-      },
-      {
-        label: 'Disagree',
-        id: 'd',
-      },
-      {
-        label: 'Neutral',
-        id: 'n',
-      },
-      {
-        label: 'Agree',
-        id: 'a',
-      },
-      {
-        label: 'Strongly agree',
-        id: 'sa',
+        value: undefined,
       },
     ],
   }),
-
-  methods: {
-    getId(stt, agremt) {
-      return `${stt}-${agremt}`
-    },
-    getModel(stt, agremt) {
-      return `${stt}_${agremt}`
-    },
-  },
 }
 </script>
 
