@@ -4,7 +4,7 @@
       question="From 1 to 5, how do you classify your knowledge and experience with MSA?"
       required
     >
-      <div class="flex justify-between">
+      <div class="flex justify-between lg:w-3/4 lg:mx-auto">
         <div class="self-end">low</div>
         <div v-for="i in 5" :key="i" class="flex flex-col justify-between">
           <label :for="scaleID(i)">{{ i }}</label>
