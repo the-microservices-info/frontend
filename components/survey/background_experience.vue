@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   data: () => ({
     exp: undefined,
@@ -57,9 +59,38 @@ export default {
     yearsWorking: undefined,
     years: ['0 - 1 year', '1 - 2 years', '2 - 4 years', '4+ years'],
   }),
+  watch: {
+    exp(newValue) {
+      this.setLevel(newValue)
+      this.runValidation()
+    },
+    mainSource(newValue) {
+      this.setSource(newValue)
+      this.runValidation()
+    },
+    yearsWorking(newValue) {
+      this.setYears(newValue)
+      this.runValidation()
+    },
+  },
   methods: {
+    ...mapMutations({
+      setLevel: 'setBackgroundExperienceKnowledgeLevel',
+      setSource: 'setBackgroundExperienceKnowledgeSource',
+      setYears: 'setBackgroundExperienceYears',
+      validate: 'setBackgroundExperienceValid',
+    }),
     scaleID(index) {
       return `scale-${index}`
+    },
+    runValidation() {
+      let valid = true
+
+      valid = valid && this.exp !== undefined
+      valid = valid && this.mainSource !== undefined
+      valid = valid && this.yearsWorking !== undefined
+
+      this.validate(valid)
     },
   },
 }
