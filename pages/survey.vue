@@ -7,6 +7,12 @@
     <Introduction />
     <BackgroundExperience />
     <DatabasePerService />
+
+    <div class="mt-4 flex justify-center items-center">
+      <button :class="btnClasses" :disabled="btnDisabled" @click="submit()">
+        Submit
+      </button>
+    </div>
   </div>
 </template>
 
@@ -21,5 +27,50 @@ export default {
     BackgroundExperience,
     DatabasePerService,
   },
+  computed: {
+    btnDisabled() {
+      return !false
+    },
+    btnClasses() {
+      const base = ['btn', 'btn-primary']
+      return this.btnDisabled ? base.concat('btn-disabled') : base
+    },
+  },
+  methods: {
+    submit() {
+      console.log('submit')
+    },
+  },
 }
 </script>
+
+<style lang="postcss" scoped>
+.btn {
+  @apply py-2 px-4 mx-4;
+  @apply text-center;
+  @apply rounded;
+  @apply text-sm;
+}
+
+.btn-primary {
+  @apply bg-gray-600 text-white;
+  @apply shadow-md;
+  @apply text-lg font-bold;
+}
+
+.btn-secondary {
+  @apply text-gray-600 underline;
+}
+
+.btn-disabled {
+  @apply font-normal italic;
+  @apply bg-gray-400;
+  @apply shadow-none;
+}
+
+@screen lg {
+  .btn {
+    @apply w-64;
+  }
+}
+</style>
