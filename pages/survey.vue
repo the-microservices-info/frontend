@@ -18,7 +18,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import * as jwt from 'jsonwebtoken'
 
 import Introduction from '@/components/survey/introduction.vue'
 import BackgroundExperience from '@/components/survey/background_experience.vue'
@@ -47,8 +46,7 @@ export default {
     async submit() {
       try {
         this.submitting = true
-        const token = jwt.sign(this.answers, process.env.APP_SECRET)
-        await this.$axios.$post('/answers', { token })
+        await this.$axios.$post('/answers', this.answers)
       } catch (e) {
       } finally {
         this.submitting = false

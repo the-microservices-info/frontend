@@ -13,7 +13,7 @@
       required
     >
       <div class="option">
-        <input id="allowed-true" v-model="allowed" type="radio" :value="true" />
+        <input id="allowed-true" v-model="allowed" type="radio" value="true" />
         <label for="allowed-true">Yes</label>
       </div>
 
@@ -22,7 +22,7 @@
           id="allowed-false"
           v-model="allowed"
           type="radio"
-          :value="false"
+          value="false"
         />
         <label for="allowed-false">No</label>
       </div>

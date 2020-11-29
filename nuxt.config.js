@@ -1,10 +1,5 @@
 export default {
   target: 'static',
-
-  env: {
-    APP_SECRET: process.env.APP_SECRET,
-  },
-
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'the-microservices-info_frontend',
