@@ -48,8 +48,7 @@ export default {
       try {
         this.submitting = true
         const token = jwt.sign(this.answers, process.env.APP_SECRET)
-        const resp = await this.$axios.$post('/answers', { token })
-        console.log(resp)
+        await this.$axios.$post('/answers', { token })
       } catch (e) {
       } finally {
         this.submitting = false
