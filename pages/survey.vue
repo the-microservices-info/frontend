@@ -39,6 +39,17 @@ import BackgroundExperience from '@/components/survey/background_experience.vue'
 import MSPattern from '@/components/survey/pattern.vue'
 
 import DatabasePerService from '@/assets/images/patterns/DatabasePerService.png'
+import Saga from '@/assets/images/patterns/Saga.png'
+import EventSourcing from '@/assets/images/patterns/EventSourcing.png'
+import AsynchronousMessaging from '@/assets/images/patterns/AsynchronousMessaging.png'
+import DomainEvent from '@/assets/images/patterns/DomainEvent.png'
+import TransactionalOutbox from '@/assets/images/patterns/TransactionalOutbox.png'
+import APIComposition from '@/assets/images/patterns/APIComposition.png'
+import ServiceRegistry from '@/assets/images/patterns/ServiceRegistry.png'
+import AdapterMicroservice from '@/assets/images/patterns/AdapterMicroservice.png'
+import Ambassador from '@/assets/images/patterns/Ambassador.png'
+import CQRS from '@/assets/images/patterns/CQRS.png'
+import SelfContainedService from '@/assets/images/patterns/SelfContainedService.png'
 
 export default {
   components: {
@@ -55,6 +66,61 @@ export default {
         name: 'Database per Service',
         paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
         imageSrc: DatabasePerService,
+      },
+      {
+        name: 'Saga',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: Saga,
+      },
+      {
+        name: 'Event Sourcing',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: EventSourcing,
+      },
+      {
+        name: 'Asynchronous Messaging',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: AsynchronousMessaging,
+      },
+      {
+        name: 'Domain Event',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: DomainEvent,
+      },
+      {
+        name: 'Transactional Outbox',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: TransactionalOutbox,
+      },
+      {
+        name: 'API Composition',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: APIComposition,
+      },
+      {
+        name: 'Service Registry',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: ServiceRegistry,
+      },
+      {
+        name: 'Adapter Microservice',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: AdapterMicroservice,
+      },
+      {
+        name: 'Ambassador',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: Ambassador,
+      },
+      {
+        name: 'CQRS',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: CQRS,
+      },
+      {
+        name: 'Self-Contained Service',
+        paragraphs: [],
+        imageSrc: SelfContainedService,
       },
     ],
   }),
