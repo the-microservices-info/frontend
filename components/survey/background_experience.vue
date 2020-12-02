@@ -84,11 +84,10 @@ export default {
       return `scale-${index}`
     },
     runValidation() {
-      let valid = true
-
-      valid = valid && this.exp !== undefined
-      valid = valid && this.mainSource !== undefined
-      valid = valid && this.yearsWorking !== undefined
+      const valid =
+        this.exp !== undefined &&
+        this.mainSource !== undefined &&
+        this.yearsWorking !== undefined
 
       this.validate(valid)
     },
