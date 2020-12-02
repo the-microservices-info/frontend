@@ -139,10 +139,11 @@ export default {
       try {
         this.submitting = true
         await this.$axios.$post('/answers', this.answers)
+        this.$router.replace('/success')
       } catch (e) {
+        this.$router.replace('/oops')
       } finally {
         this.submitting = false
-        this.$router.replace('/success')
       }
     },
   },
