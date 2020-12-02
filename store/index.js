@@ -23,6 +23,12 @@ export const getters = {
   answers(s) {
     return Object.keys(s).reduce((acc, section) => {
       acc[section] = { ...s[section].questions }
+
+      if (!acc[section].isUsed) {
+        acc[section].comments = ''
+        acc[section].statements = undefined
+      }
+
       return acc
     }, {})
   },
