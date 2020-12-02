@@ -8,6 +8,8 @@
       {{ section }}
     </p>
 
+    <SubsectionDivider />
+
     <Question question="What is your name?">
       <input
         id="person-name"
@@ -59,7 +61,12 @@
 <script>
 export default {
   data: () => ({
-    disclaimer: ['foo bar baz', '> bar baz'],
+    disclaimer: [
+      `It is possible that some of the answers of the previous sections particularly raise our attention and there might be some follow-up.`,
+      `This section, we gather information to enable that.`,
+      `> All questions in this section are **optional**`,
+      `> None of this information will be published or used for any other purpose.`,
+    ],
     person: {
       name: '',
       email: '',
