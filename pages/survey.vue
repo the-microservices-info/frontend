@@ -4,7 +4,7 @@
       v-if="displaySurvey"
       class="container mx-auto px-4 lg:px-40 mb-20 lg:mb-40"
     >
-      <h1 class="text-xl lg:text-2xl font-bold py-10 underline">
+      <h1 id="top" class="text-xl lg:text-2xl font-bold py-10 underline">
         Microservices Patterns Survey
       </h1>
 
@@ -26,6 +26,8 @@
         <button :class="btnClasses" :disabled="btnDisabled" @click="submit()">
           Submit
         </button>
+
+        <a href="#top" class="btn btn-secondary">back to the top</a>
       </div>
     </main>
     <main v-else-if="submitSuccess">Thanks for your collaboration!</main>

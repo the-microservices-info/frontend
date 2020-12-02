@@ -1,5 +1,5 @@
 <template>
-  <SectionCard :title="name">
+  <SectionCard :title="name" :status="status">
     <PatternSection :pattern="name" @update="update($event)">
       <div class="flex flex-col">
         <img :src="imageSrc" :alt="alt" class="mx-auto" />
@@ -30,9 +30,17 @@ export default {
       required: true,
     },
   },
+  data: () => ({
+    sectionValid: undefined,
+  }),
   computed: {
     alt() {
       return `${this.name} representation`
+    },
+    status() {
+      if (this.sectionValid === undefined) return 'neutral'
+
+      return this.sectionValid ? 'valid' : 'invalid'
     },
   },
   created() {
@@ -51,6 +59,8 @@ export default {
           statements.reduce((acc, stt) => acc && stt.value !== undefined))
 
       this.setPatternValid({ name: this.name, valid })
+
+      this.sectionValid = valid
     },
   },
 }
