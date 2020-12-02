@@ -6,8 +6,13 @@
 
     <Question question="Did you know this pattern?" required>
       <div v-for="{ id, label } in knowledgeTypes" :key="id" class="option">
-        <input :id="id" v-model="knowledgeType" type="radio" :value="label" />
-        <label :for="id">{{ label }}</label>
+        <input
+          :id="idOf(id)"
+          v-model="knowledgeType"
+          type="radio"
+          :value="label"
+        />
+        <label :for="idOf(id)">{{ label }}</label>
       </div>
     </Question>
 
@@ -59,6 +64,12 @@
 
 <script>
 export default {
+  props: {
+    pattern: {
+      type: String,
+      required: true,
+    },
+  },
   data: () => ({
     knowledgeType: undefined,
     knowledgeTypes: [
@@ -101,6 +112,11 @@ export default {
 
     comments: '',
   }),
+  computed: {
+    name() {
+      return this.pattern.toLowerCase().replace(/ /g, '-')
+    },
+  },
   watch: {
     knowledgeType() {
       this.update()
@@ -126,6 +142,9 @@ export default {
         statements: this.statements.map((stt) => Object.assign({}, stt)),
         comments: this.comments,
       })
+    },
+    idOf(id) {
+      return `${id}-${this.name}`
     },
   },
 }

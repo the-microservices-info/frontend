@@ -1,6 +1,6 @@
 <template>
   <SectionCard :title="name">
-    <PatternSection @update="update($event)">
+    <PatternSection :pattern="name" @update="update($event)">
       <div class="flex flex-col">
         <img :src="imageSrc" :alt="alt" class="mx-auto" />
 
