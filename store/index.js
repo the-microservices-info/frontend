@@ -14,6 +14,15 @@ export const state = () => ({
       years: undefined,
     },
   },
+
+  databasePerService: {
+    isValid: false,
+    questions: {
+      knowledgeType: undefined,
+      isUsed: undefined,
+      statements: undefined,
+    },
+  },
 })
 
 export const getters = {
@@ -21,16 +30,10 @@ export const getters = {
     return Object.keys(s).every((section) => s[section].isValid)
   },
   answers(s) {
-    return {
-      introduction: {
-        allowed: s.introduction.questions.allowed,
-      },
-      backgroundExperience: {
-        knowledgeLevel: s.backgroundExperience.questions.knowledgeLevel,
-        knowledgeSource: s.backgroundExperience.questions.knowledgeSource,
-        years: s.backgroundExperience.questions.years,
-      },
-    }
+    return Object.keys(s).reduce((acc, section) => {
+      acc[section] = { ...s[section].questions }
+      return acc
+    }, {})
   },
 }
 
@@ -56,5 +59,12 @@ export const mutations = {
   },
   setBackgroundExperienceValid(s, valid) {
     s.backgroundExperience.isValid = valid
+  },
+
+  setDBperService(s, answers) {
+    s.databasePerService.questions = { ...answers }
+  },
+  setDBperServiceValid(s, valid) {
+    s.databasePerService.isValid = valid
   },
 }

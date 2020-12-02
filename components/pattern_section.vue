@@ -24,7 +24,7 @@
       </div>
     </Question>
 
-    <div v-if="!isUsed">
+    <div v-if="isUsed">
       <SubsectionDivider />
 
       <Question question="Classify the statements below" required>
@@ -85,6 +85,29 @@ export default {
       },
     ],
   }),
+  watch: {
+    knowledgeType() {
+      this.update()
+    },
+    isUsed() {
+      this.update()
+    },
+    statements: {
+      deep: true,
+      handler() {
+        this.update()
+      },
+    },
+  },
+  methods: {
+    update() {
+      this.$emit('update', {
+        knowledgeType: this.knowledgeType,
+        isUsed: this.isUsed,
+        statements: this.statements.map((stt) => Object.assign({}, stt)),
+      })
+    },
+  },
 }
 </script>
 
