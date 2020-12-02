@@ -39,6 +39,20 @@
           />
         </div>
       </Question>
+
+      <SubsectionDivider />
+
+      <Question
+        question="If you wish to, use this space to comment on the use of this pattern or on any of the answers you gave about it"
+      >
+        <div class="lg:mx-10">
+          <textarea
+            v-model="comments"
+            class="w-full h-20 resize-none border rounded-md"
+          >
+          </textarea>
+        </div>
+      </Question>
     </div>
   </div>
 </template>
@@ -84,6 +98,8 @@ export default {
         value: undefined,
       },
     ],
+
+    comments: '',
   }),
   watch: {
     knowledgeType() {
@@ -98,6 +114,9 @@ export default {
         this.update()
       },
     },
+    comments() {
+      this.update()
+    },
   },
   methods: {
     update() {
@@ -105,6 +124,7 @@ export default {
         knowledgeType: this.knowledgeType,
         isUsed: this.isUsed,
         statements: this.statements.map((stt) => Object.assign({}, stt)),
+        comments: this.comments,
       })
     },
   },
