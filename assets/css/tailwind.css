@@ -32,3 +32,11 @@
     @apply w-64;
   }
 }
+
+.option {
+  @apply flex items-baseline;
+}
+
+.option > * {
+  @apply mx-2;
+}

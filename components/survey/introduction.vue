@@ -65,13 +65,3 @@ For the purpose of this survey, define a system (the whole system, not a service
   },
 }
 </script>
-
-<style lang="postcss" scoped>
-.option {
-  @apply flex items-baseline;
-}
-
-.option > * {
-  @apply mx-2;
-}
-</style>

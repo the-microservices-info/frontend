@@ -9,7 +9,9 @@
       </h1>
 
       <Introduction />
+
       <BackgroundExperience />
+
       <MSPattern
         v-for="{ name, paragraphs, imageSrc } of patterns"
         :key="name"
@@ -17,6 +19,8 @@
         :paragraphs="paragraphs"
         :image-src="imageSrc"
       />
+
+      <PersonalInfo />
 
       <div class="mt-4 flex justify-center items-center">
         <button :class="btnClasses" :disabled="btnDisabled" @click="submit()">
@@ -37,6 +41,7 @@ import { mapGetters } from 'vuex'
 import Introduction from '@/components/survey/introduction.vue'
 import BackgroundExperience from '@/components/survey/background_experience.vue'
 import MSPattern from '@/components/survey/pattern.vue'
+import PersonalInfo from '@/components/survey/personal_info.vue'
 
 import DatabasePerService from '@/assets/images/patterns/DatabasePerService.png'
 import Saga from '@/assets/images/patterns/Saga.png'
@@ -56,6 +61,7 @@ export default {
     Introduction,
     BackgroundExperience,
     MSPattern,
+    PersonalInfo,
   },
   data: () => ({
     submitting: false,
