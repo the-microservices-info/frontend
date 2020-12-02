@@ -14,15 +14,6 @@ export const state = () => ({
       years: undefined,
     },
   },
-
-  databasePerService: {
-    isValid: false,
-    questions: {
-      knowledgeType: undefined,
-      isUsed: undefined,
-      statements: undefined,
-    },
-  },
 })
 
 export const getters = {
@@ -61,10 +52,13 @@ export const mutations = {
     s.backgroundExperience.isValid = valid
   },
 
-  setDBperService(s, answers) {
-    s.databasePerService.questions = { ...answers }
+  initPattern(s, name) {
+    s[name] = { isValid: false, questions: {} }
   },
-  setDBperServiceValid(s, valid) {
-    s.databasePerService.isValid = valid
+  setPattern(s, { name, answers }) {
+    s[name].questions = { ...answers }
+  },
+  setPatternValid(s, { name, valid }) {
+    s[name].isValid = valid
   },
 }

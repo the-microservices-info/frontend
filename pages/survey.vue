@@ -10,7 +10,13 @@
 
       <Introduction />
       <BackgroundExperience />
-      <DatabasePerService />
+      <MSPattern
+        v-for="{ name, paragraphs, imageSrc } of patterns"
+        :key="name"
+        :name="name"
+        :paragraphs="paragraphs"
+        :image-src="imageSrc"
+      />
 
       <div class="mt-4 flex justify-center items-center">
         <button :class="btnClasses" :disabled="btnDisabled" @click="submit()">
@@ -30,17 +36,27 @@ import { mapGetters } from 'vuex'
 
 import Introduction from '@/components/survey/introduction.vue'
 import BackgroundExperience from '@/components/survey/background_experience.vue'
-import DatabasePerService from '@/components/survey/database_per_service.vue'
+import MSPattern from '@/components/survey/pattern.vue'
+
+import DatabasePerService from '@/assets/images/patterns/DatabasePerService.png'
 
 export default {
   components: {
     Introduction,
     BackgroundExperience,
-    DatabasePerService,
+    MSPattern,
   },
   data: () => ({
     submitting: false,
     success: undefined,
+
+    patterns: [
+      {
+        name: 'Database per Service',
+        paragraphs: ['foo bar baz', 'foo bar baz', 'foo bar baz'],
+        imageSrc: DatabasePerService,
+      },
+    ],
   }),
   computed: {
     ...mapGetters(['formValid', 'answers']),
