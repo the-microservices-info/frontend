@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ProgressBar />
     <main class="container mx-auto px-4 lg:px-40 mb-20 lg:mb-40">
       <h1 id="top" class="text-xl lg:text-2xl font-bold py-10 underline">
         Microservices Patterns Survey

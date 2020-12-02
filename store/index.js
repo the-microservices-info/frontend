@@ -32,6 +32,15 @@ export const getters = {
       return acc
     }, {})
   },
+  progress(s) {
+    const n = Object.keys(s).reduce((acc, section) => {
+      return s[section].isValid ? acc + 1 : acc
+    }, 0)
+
+    const N = Object.keys(s).length
+
+    return `${n}of${N}`
+  },
 }
 
 export const mutations = {
