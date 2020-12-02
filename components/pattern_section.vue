@@ -20,12 +20,22 @@
 
     <Question question="Is this pattern adopted in your system?" required>
       <div class="option">
-        <input id="used-true" v-model="isUsed" type="radio" :value="true" />
-        <label for="used-true">Yes</label>
+        <input
+          :id="idOf('used-true')"
+          v-model="isUsed"
+          type="radio"
+          :value="true"
+        />
+        <label :for="idOf('used-true')">Yes</label>
       </div>
       <div class="option">
-        <input id="used-false" v-model="isUsed" type="radio" :value="false" />
-        <label for="used-false">No</label>
+        <input
+          :id="idOf('used-false')"
+          v-model="isUsed"
+          type="radio"
+          :value="false"
+        />
+        <label :for="idOf('used-false')">No</label>
       </div>
     </Question>
 
