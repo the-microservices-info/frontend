@@ -25,7 +25,7 @@
       <input
         id="person-email"
         v-model="person.email"
-        type="text"
+        type="email"
         class="text-input"
       />
     </Question>
@@ -59,6 +59,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   data: () => ({
     disclaimer: [
@@ -73,6 +75,17 @@ export default {
       available: undefined,
     },
   }),
+  watch: {
+    person: {
+      deep: true,
+      handler() {
+        this.setPerson(this.person)
+      },
+    },
+  },
+  methods: {
+    ...mapMutations(['setPerson']),
+  },
 }
 </script>
 

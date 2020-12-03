@@ -14,6 +14,15 @@ export const state = () => ({
       years: undefined,
     },
   },
+
+  personalInformation: {
+    isValid: true,
+    questions: {
+      name: '',
+      email: '',
+      available: undefined,
+    },
+  },
 })
 
 export const getters = {
@@ -75,5 +84,9 @@ export const mutations = {
   },
   setPatternValid(s, { name, valid }) {
     s[name].isValid = valid
+  },
+
+  setPerson(s, person) {
+    s.personalInformation.questions = { ...person }
   },
 }
