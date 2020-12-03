@@ -39,36 +39,38 @@
       </div>
     </Question>
 
-    <div v-if="isUsed">
-      <SubsectionDivider />
+    <transition name="accordion">
+      <div v-if="isUsed" class="extra">
+        <SubsectionDivider />
 
-      <Question question="Classify the statements below" required>
-        <div
-          v-for="({ statement }, i) in statements"
-          :key="statement"
-          class="mt-2 mb-4 lg:w-3/4 lg:mx-auto flex flex-col justify-between"
-        >
-          <StatementAgreement
-            :statement="statement"
-            @select="statements[i].value = $event"
-          />
-        </div>
-      </Question>
-
-      <SubsectionDivider />
-
-      <Question
-        question="If you wish to, use this space to comment on the use of this pattern or on any of the answers you gave about it"
-      >
-        <div class="lg:mx-10">
-          <textarea
-            v-model="comments"
-            class="w-full h-20 resize-none border rounded-md"
+        <Question question="Classify the statements below" required>
+          <div
+            v-for="({ statement }, i) in statements"
+            :key="statement"
+            class="mt-2 mb-4 lg:w-3/4 lg:mx-auto flex flex-col justify-between"
           >
-          </textarea>
-        </div>
-      </Question>
-    </div>
+            <StatementAgreement
+              :statement="statement"
+              @select="statements[i].value = $event"
+            />
+          </div>
+        </Question>
+
+        <SubsectionDivider />
+
+        <Question
+          question="If you wish to, use this space to comment on the use of this pattern or on any of the answers you gave about it"
+        >
+          <div class="lg:mx-10">
+            <textarea
+              v-model="comments"
+              class="w-full h-20 resize-none border rounded-md"
+            >
+            </textarea>
+          </div>
+        </Question>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -167,5 +169,20 @@ export default {
 
 .option > * {
   @apply mx-2;
+}
+
+.extra {
+  max-height: 800px;
+  overflow: hidden;
+}
+
+.accordion-enter-active,
+.accordion-leave-active {
+  transition: max-height 0.5s;
+}
+
+.accordion-enter,
+.accordion-leave-to {
+  max-height: 0;
 }
 </style>
