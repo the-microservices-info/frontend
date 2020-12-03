@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 import Introduction from '@/components/survey/introduction.vue'
 import BackgroundExperience from '@/components/survey/background_experience.vue'
@@ -172,15 +172,20 @@ export default {
     },
   },
   methods: {
+    ...mapMutations(['resetState']),
     async submit() {
+      let nextRoute
       try {
         this.submitting = true
         await this.$axios.$post('/answers', this.answers)
-        this.$router.replace('/success')
+        nextRoute = '/success'
       } catch (e) {
-        this.$router.replace('/oops')
+        nextRoute = '/oops'
       } finally {
         this.submitting = false
+
+        this.resetState()
+        this.$router.replace(nextRoute)
       }
     },
   },

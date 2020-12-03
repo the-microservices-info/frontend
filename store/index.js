@@ -1,4 +1,4 @@
-export const state = () => ({
+const initialState = {
   introduction: {
     questions: {
       allowed: undefined,
@@ -23,7 +23,9 @@ export const state = () => ({
       available: undefined,
     },
   },
-})
+}
+
+export const state = () => ({ ...initialState })
 
 export const getters = {
   formValid(s) {
@@ -46,9 +48,7 @@ export const getters = {
       return s[section].isValid ? acc + 1 : acc
     }, 0)
 
-    const N = Object.keys(s).length
-
-    return n / N
+    return n / 15
   },
 }
 
@@ -88,5 +88,9 @@ export const mutations = {
 
   setPerson(s, person) {
     s.personalInformation.questions = { ...person }
+  },
+
+  resetState(s) {
+    s = { ...initialState }
   },
 }
