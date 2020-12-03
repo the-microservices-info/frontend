@@ -39,7 +39,7 @@ export const getters = {
 
     const N = Object.keys(s).length
 
-    return `${n}of${N}`
+    return n / N
   },
 }
 
