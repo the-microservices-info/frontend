@@ -43,11 +43,8 @@ export default {
       return this.sectionValid ? 'valid' : 'invalid'
     },
   },
-  created() {
-    this.initPattern(this.name)
-  },
   methods: {
-    ...mapMutations(['initPattern', 'setPattern', 'setPatternValid']),
+    ...mapMutations(['setPattern', 'setPatternValid']),
     update(answers) {
       const { knowledgeType, isUsed, statements } = answers
       this.setPattern({ name: this.name, answers })

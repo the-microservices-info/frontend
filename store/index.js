@@ -25,6 +25,33 @@ const initialState = {
   },
 }
 
+const patterns = [
+  'Database per Service',
+  'Saga',
+  'Event Sourcing',
+  'Asynchronous Messaging',
+  'Domain Event',
+  'Transactional Outbox',
+  'API Composition',
+  'Service Registry',
+  'Adapter Microservice',
+  'Ambassador',
+  'CQRS',
+  'Self-Contained Service',
+]
+
+patterns.forEach((pattern) => {
+  initialState[pattern] = {
+    isValid: false,
+    questions: {
+      knowledgeType: undefined,
+      isUsed: undefined,
+      statements: undefined,
+      comments: '',
+    },
+  }
+})
+
 export const state = () => ({ ...initialState })
 
 export const getters = {
@@ -76,9 +103,6 @@ export const mutations = {
     s.backgroundExperience.isValid = valid
   },
 
-  initPattern(s, name) {
-    s[name] = { isValid: false, questions: {} }
-  },
   setPattern(s, { name, answers }) {
     s[name].questions = { ...answers }
   },
@@ -91,6 +115,8 @@ export const mutations = {
   },
 
   resetState(s) {
-    s = { ...initialState }
+    Object.keys(initialState).forEach((section) => {
+      s[section] = initialState[section]
+    })
   },
 }
