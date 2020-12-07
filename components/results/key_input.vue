@@ -26,12 +26,23 @@ export default {
   methods: {
     async access() {
       try {
-        const { data } = await this.$axios.get(
-          'http://localhost:3030/answers',
+        const {
+          data: { answers },
+        } = await this.$axios.get('http://localhost:3030/answers', {
+          params: { key: this.passkey },
+        })
+
+        const {
+          data: { backgroundExperience },
+        } = await this.$axios.get(
+          'http://localhost:3030/answers/backgroundExperience',
           { params: { key: this.passkey } }
         )
 
-        this.$emit('authorized', data.answers)
+        this.$emit('authorized', {
+          answers,
+          backgroundExperience,
+        })
       } catch (e) {
         this.$emit('unauthorized')
       }
