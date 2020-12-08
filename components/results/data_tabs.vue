@@ -20,11 +20,10 @@
       />
     </div>
 
-    <div v-else-if="selectedTab === 'Database per Service'">
-      <DatabasePerService
-        :answers="answers"
-        :database-per-service="databasePerService"
-      />
+    <div v-for="tab in patternsTabs" :key="tab">
+      <div v-if="selectedTab === tab">
+        <PatternTab :answers="answers" :pattern-data="patternDataFor(tab)" />
+      </div>
     </div>
   </div>
 </template>
@@ -48,12 +47,16 @@ export default {
 
   data: () => ({
     tabs: ['General', 'Database per Service'],
+    patternsTabs: ['Database per Service'],
     selectedTab: 'General',
   }),
 
   methods: {
     select(tab) {
       this.selectedTab = tab
+    },
+    patternDataFor(tab) {
+      return { 'Database per Service': this.databasePerService }[tab]
     },
   },
 }

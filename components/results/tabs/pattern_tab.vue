@@ -1,8 +1,8 @@
 <template>
   <div class="tab-content">
     <div class="card smaller">
-      <p class="text-6xl font-bold">{{ percentageOfUse }}%</p>
-      <p class="text-lg">uses this pattern</p>
+      <p class="text-5xl font-bold">{{ usage }}</p>
+      <p class="text-lg">({{ percentageOfUse }}%) uses this pattern</p>
     </div>
 
     <div class="card smaller lg:order-4">
@@ -19,17 +19,10 @@
       <Bar :input="value" class="chart" />
     </div>
 
-    <div
-      v-if="databasePerService.comments.length > 0"
-      class="card flex-grow w-full order-last"
-    >
+    <div v-if="comments.length > 0" class="card flex-grow w-full order-last">
       <p class="font-lg mb-4">Comments</p>
       <ul class="self-start">
-        <li
-          v-for="comment in databasePerService.comments"
-          :key="comment"
-          class="pl-4 mb-2"
-        >
+        <li v-for="comment in comments" :key="comment" class="pl-4 mb-2">
           {{ comment }}
         </li>
       </ul>
@@ -44,30 +37,40 @@ export default {
       type: Array,
       required: true,
     },
-    databasePerService: {
+    patternData: {
       type: Object,
       required: true,
     },
   },
 
   computed: {
-    percentageOfUse() {
-      if (this.answers.length === 0) return 0
+    n() {
+      return this.patternData.isUsed
+    },
 
-      return Math.floor(
-        (this.databasePerService.isUsed / this.answers.length) * 100
-      )
+    N() {
+      return this.answers.length
+    },
+
+    percentageOfUse() {
+      if (this.N === 0) return 0
+
+      return Math.floor((this.n / this.N) * 100)
+    },
+
+    usage() {
+      return `${this.n} out of ${this.N}`
     },
 
     knowledgeType() {
       return {
-        'As a pattern': this.databasePerService.knowledgeType[
+        'As a pattern': this.patternData.knowledgeType[
           'Yes, I knew as a pattern'
         ],
-        'As a practice': this.databasePerService.knowledgeType[
+        'As a practice': this.patternData.knowledgeType[
           "I recognize it as a practice, but I didn't know it was a pattern"
         ],
-        "Didn't know": this.databasePerService.knowledgeType["I didn't know"],
+        "Didn't know": this.patternData.knowledgeType["I didn't know"],
       }
     },
 
@@ -81,11 +84,15 @@ export default {
 
       const orders = [2, 3, 5, 6]
 
-      return this.databasePerService.statements.map(({ value }, i) => ({
+      return this.patternData.statements.map(({ value }, i) => ({
         value,
         title: titles[i],
         orderLg: orders[i],
       }))
+    },
+
+    comments() {
+      return this.patternData.comments
     },
   },
 }
