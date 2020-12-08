@@ -28,23 +28,19 @@ export default {
       try {
         const {
           data: { answers },
-        } = await this.$axios.get('http://localhost:3030/answers', {
+        } = await this.$axios.get('/answers', {
           params: { key: this.passkey },
         })
 
         const {
           data: { backgroundExperience },
-        } = await this.$axios.get(
-          'http://localhost:3030/answers/backgroundExperience',
-          { params: { key: this.passkey } }
-        )
+        } = await this.$axios.get('/answers/backgroundExperience', {
+          params: { key: this.passkey },
+        })
 
-        const {
-          data,
-        } = await this.$axios.get(
-          'http://localhost:3030/answers/databasePerService',
-          { params: { key: this.passkey } }
-        )
+        const { data } = await this.$axios.get('/answers/databasePerService', {
+          params: { key: this.passkey },
+        })
 
         this.$emit('authorized', {
           answers,
