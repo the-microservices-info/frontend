@@ -39,9 +39,17 @@ export default {
           { params: { key: this.passkey } }
         )
 
+        const {
+          data,
+        } = await this.$axios.get(
+          'http://localhost:3030/answers/databasePerService',
+          { params: { key: this.passkey } }
+        )
+
         this.$emit('authorized', {
           answers,
           backgroundExperience,
+          databasePerService: data['Database per Service'],
         })
       } catch (e) {
         this.$emit('unauthorized')
