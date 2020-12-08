@@ -1,8 +1,8 @@
 <template>
   <div class="tab-content">
     <div class="card smaller">
-      <p class="text-6xl font-bold">{{ percentageOfUse }}%</p>
-      <p class="text-lg">uses this pattern</p>
+      <p class="text-5xl font-bold">{{ usage }}</p>
+      <p class="text-lg">({{ percentageOfUse }}%) uses this pattern</p>
     </div>
 
     <div class="card smaller lg:order-4">
@@ -44,13 +44,22 @@ export default {
   },
 
   computed: {
+    n() {
+      return this.patternData.isUsed
+    },
+
+    N() {
+      return this.answers.length
+    },
+
     percentageOfUse() {
-      if (this.answers.length === 0) return 0
+      if (this.N === 0) return 0
 
-      const n = this.patternData.isUsed
-      const N = this.answers.length
+      return Math.floor((this.n / this.N) * 100)
+    },
 
-      return Math.floor((n / N) * 100)
+    usage() {
+      return `${this.n} out of ${this.N}`
     },
 
     knowledgeType() {
