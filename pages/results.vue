@@ -8,11 +8,11 @@
     <div v-else-if="blocked">
       <p>access blocked</p>
     </div>
-    <div v-else class="flex flex-wrap p-4">
-      <div class="card">
-        <p class="text-6xl font-bold">{{ answers.length }}</p>
-        <p class="text-lg">answers</p>
-      </div>
+    <div v-else>
+      <DataTabs
+        :answers="answers"
+        :background-experience="backgroundExperience"
+      />
     </div>
   </main>
 </template>
@@ -42,9 +42,3 @@ export default {
   },
 }
 </script>
-
-<style lang="postcss" scoped>
-.card {
-  @apply shadow-md rounded-lg h-56 w-full flex flex-col justify-center items-center;
-}
-</style>
