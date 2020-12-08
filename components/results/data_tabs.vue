@@ -13,11 +13,19 @@
       </nav>
     </div>
 
-    <General
-      v-if="selectedTab === 'General'"
-      :answers="answers"
-      :background-experience="backgroundExperience"
-    />
+    <div v-if="selectedTab === 'General'">
+      <General
+        :answers="answers"
+        :background-experience="backgroundExperience"
+      />
+    </div>
+
+    <div v-else-if="selectedTab === 'Database per Service'">
+      <DatabasePerService
+        :answers="answers"
+        :database-per-service="databasePerService"
+      />
+    </div>
   </div>
 </template>
 
@@ -29,6 +37,10 @@ export default {
       required: true,
     },
     backgroundExperience: {
+      type: Object,
+      required: true,
+    },
+    databasePerService: {
       type: Object,
       required: true,
     },

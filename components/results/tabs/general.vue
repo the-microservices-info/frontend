@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap justify-center">
+  <div class="tab-content">
     <div class="card">
       <p class="text-6xl font-bold">{{ answers.length }}</p>
       <p class="text-lg">answers</p>
@@ -64,29 +64,3 @@ export default {
   },
 }
 </script>
-
-<style lang="postcss" scoped>
-.card {
-  @apply shadow-md rounded-lg py-10 w-full flex flex-col justify-center items-center;
-}
-
-.chart {
-  @apply relative w-4/5 mx-auto;
-}
-
-@screen md {
-  .card {
-    @apply w-1/2;
-  }
-}
-
-@screen lg {
-  .card {
-    @apply w-1/2 mx-0 shadow-none;
-  }
-
-  .chart {
-    @apply w-1/2;
-  }
-}
-</style>
