@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap px-4 lg:px-32 justify-center">
+  <div class="flex flex-wrap justify-center">
     <div class="card">
       <p class="text-6xl font-bold">{{ answers.length }}</p>
       <p class="text-lg">answers</p>
