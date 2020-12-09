@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-10 lg:px-32">
     <div>
-      <nav class="flex justify-start items-center overflow-x-scroll">
+      <nav class="mt-2 flex justify-start items-center overflow-x-scroll">
         <span
           v-for="tab of tabs"
           :key="tab"
@@ -101,21 +101,21 @@ span {
 }
 
 .tab {
-  @apply p-4 text-center;
+  @apply px-4 py-2 mx-1 bg-gray-100 text-center rounded-t-lg;
   transition: all 0.1s cubic-bezier(0.3, 0.3, 0.3, 0.3);
 }
 
 .tab.selected-tab {
-  @apply font-bold text-xl;
+  @apply bg-gray-200 font-bold;
   transition: all 0.1s cubic-bezier(0.3, 0.3, 0.3, 0.3);
 }
 
 *::-webkit-scrollbar {
-  height: 0.5rem;
+  height: 0.25rem;
 }
 
 *::-webkit-scrollbar-thumb {
-  height: 0.5rem;
+  height: 0.25rem;
   border-radius: 4rem;
   background-color: darkgrey;
 }
