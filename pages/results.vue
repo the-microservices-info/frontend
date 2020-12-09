@@ -12,7 +12,7 @@
       <DataTabs
         :answers="answers"
         :background-experience="backgroundExperience"
-        :database-per-service="databasePerService"
+        :payload="payload"
       />
     </div>
   </main>
@@ -23,7 +23,7 @@ export default {
   data: () => ({
     answers: undefined,
     backgroundExperience: undefined,
-    databasePerService: undefined,
+    payload: undefined,
     blocked: false,
   }),
 
@@ -34,10 +34,10 @@ export default {
   },
 
   methods: {
-    display({ answers, backgroundExperience, databasePerService }) {
-      this.answers = answers
-      this.backgroundExperience = backgroundExperience
-      this.databasePerService = databasePerService
+    display(payload) {
+      this.answers = payload.answers
+      this.backgroundExperience = payload.backgroundExperience
+      this.payload = payload
     },
     blockAccess() {
       this.blocked = true
