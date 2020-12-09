@@ -39,24 +39,57 @@ export default {
       type: Object,
       required: true,
     },
-    databasePerService: {
+    payload: {
       type: Object,
       required: true,
     },
   },
 
   data: () => ({
-    tabs: ['General', 'Database per Service'],
-    patternsTabs: ['Database per Service'],
+    patternsTabs: [
+      'Database per Service',
+      'Saga',
+      'Event Sourcing',
+      'Asynchronous Messaging',
+      'Domain Event',
+      'Transactional Outbox',
+      'API Composition',
+      'Service Registry',
+      'Adapter Microservice',
+      'Ambassador',
+      'CQRS',
+      'Self-Contained Service',
+    ],
     selectedTab: 'General',
   }),
+
+  computed: {
+    tabs() {
+      return ['General'].concat(this.patternsTabs)
+    },
+  },
 
   methods: {
     select(tab) {
       this.selectedTab = tab
     },
     patternDataFor(tab) {
-      return { 'Database per Service': this.databasePerService }[tab]
+      const pl = this.payload
+
+      return {
+        'Database per Service': pl.databasePerService,
+        Saga: pl.saga,
+        'Event Sourcing': pl.eventSourcing,
+        'Asynchronous Messaging': pl.asynchronousMessaging,
+        'Domain Event': pl.domainEvent,
+        'Transactional Outbox': pl.transactionalOutbox,
+        'API Composition': pl.apiComposition,
+        'Service Registry': pl.serviceRegistry,
+        'Adapter Microservice': pl.adapterMicroservice,
+        Ambassador: pl.ambassador,
+        CQRS: pl.cqrs,
+        'Self-Contained Service': pl.selfContainedService,
+      }[tab]
     },
   },
 }
