@@ -71,6 +71,22 @@ const patterns = [
     ],
     imageSrc: require('@/assets/images/patterns/CQRS.png'),
   },
+  {
+    name: 'API Gateway',
+    paragraphs: [
+      `Provide a single access point to external clients by implementing an API Gateway, which will abstract the application's internal division.`,
+      `As microservices are often dynamicaly routed and each expose a fine-grained interface, API Gateway provides an abstraction of this environment to external clients by standing as a single access point that handles request redirections.`,
+    ],
+    imageSrc: require('@/assets/images/patterns/APIGateway.png'),
+  },
+  {
+    name: 'BFF',
+    paragraphs: [
+      `Provide a single and customized access point to each type of external client by implementing a set of Backends-for-Frontends (BFFs), each which will work as an API Gateway.`,
+      `When taking into account the heterogenity of external clients, such as mobile, desktop, and web clients, each type might have its own constaints of request time, protocols, and data. BFFs enable developers to provide a well-fit API for each type of client.`,
+    ],
+    imageSrc: require('@/assets/images/patterns/BFFs.png'),
+  },
 ]
 
 const initialState = {
@@ -151,7 +167,7 @@ export const getters = {
         return s[section].isValid ? acc + 1 : acc
       }, 0)
 
-    return n / 15
+    return n / Object.keys(s).filter((sec) => sec !== 'meta').length
   },
 }
 
