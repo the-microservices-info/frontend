@@ -56,28 +56,12 @@ const patterns = [
     imageSrc: require('@/assets/images/patterns/APIComposition.png'),
   },
   {
-    name: 'Service Registry',
-    paragraphs: [
-      `Create a service to keep track of addresses and copies of the rest of the services, providing an easy way to handle scalability.`,
-      `The creation of a database that stores the microservices locations instances facilitates the discovery of such instances. On the other hand, a service (Registry) dependency is created, increasing the coupling. Furthermore, in the case of Registry failure, the problem of (eventual) data consistency arises`,
-    ],
-    imageSrc: require('@/assets/images/patterns/ServiceRegistry.png'),
-  },
-  {
     name: 'Adapter Microservice',
     paragraphs: [
       `Place a new microservice in between two others to adapt the provided API into the expected API.`,
       `A new microservice -- highly -- coupled with a legacy service is added. On the other hand, a new communication interface with the rest of the system is gained, which is more flexible and consistent with the microservices architectural style`,
     ],
     imageSrc: require('@/assets/images/patterns/AdapterMicroservice.png'),
-  },
-  {
-    name: 'Ambassador',
-    paragraphs: [
-      `Create a new microservice that acts as a proxy dedicated to monitoring, logging, and other cross-cutting concerns and peripheral functionalities.`,
-      `Peripheral functionalities are removed from the business logic process, which increases the dependency between microservices. On the other hand, the development process is favored since a microservice is created to act as a Proxy. This pattern can be considered to be a superset of the sidecar, the difference of which is that it does not necessarily follow the life cycle of the main application`,
-    ],
-    imageSrc: require('@/assets/images/patterns/Ambassador.png'),
   },
   {
     name: 'CQRS',
@@ -88,12 +72,20 @@ const patterns = [
     imageSrc: require('@/assets/images/patterns/CQRS.png'),
   },
   {
-    name: 'Self-Contained Service',
+    name: 'API Gateway',
     paragraphs: [
-      `Put the service to listen to and store events related to all data it depends, so that when requested it can simply reply without any request to other microservices.`,
-      `By definition, it is a service that depends little on others, which reduces coupling but increases the microservices internal complexity`,
+      `Provide a single access point to external clients by implementing an API Gateway, which will abstract the application's internal division.`,
+      `As microservices are often dynamicaly routed and each expose a fine-grained interface, API Gateway provides an abstraction of this environment to external clients by standing as a single access point that handles request redirections.`,
     ],
-    imageSrc: require('@/assets/images/patterns/SelfContainedService.png'),
+    imageSrc: require('@/assets/images/patterns/APIGateway.png'),
+  },
+  {
+    name: 'BFF',
+    paragraphs: [
+      `Provide a single and customized access point to each type of external client by implementing a set of Backends-for-Frontends (BFFs), each which will work as an API Gateway.`,
+      `When taking into account the heterogenity of external clients, such as mobile, desktop, and web clients, each type might have its own constaints of request time, protocols, and data. BFFs enable developers to provide a well-fit API for each type of client.`,
+    ],
+    imageSrc: require('@/assets/images/patterns/BFFs.png'),
   },
 ]
 
@@ -175,7 +167,7 @@ export const getters = {
         return s[section].isValid ? acc + 1 : acc
       }, 0)
 
-    return n / 15
+    return n / Object.keys(s).filter((sec) => sec !== 'meta').length
   },
 }
 
