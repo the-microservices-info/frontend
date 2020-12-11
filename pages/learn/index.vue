@@ -1,12 +1,12 @@
 <template>
   <LearnScaffold #default="{ items }">
-    <div class="px-4 lg:pl-56 lg:mt-4 flex flex-col">
-      <h1 class="text-4xl text-center self-center">
+    <div class="px-4 lg:pl-56 lg:mt-4 flex flex-col lg:flex-row lg:flex-wrap">
+      <h1 class="text-4xl text-center self-center w-screen">
         Learn more about Microservices
       </h1>
 
       <div
-        class="px-4 my-4 shadow-md rounded-lg p-4 flex flex-col lg:w-1/3 lg:mx-10 lg:self-end"
+        class="px-4 my-4 shadow-md rounded-lg p-4 flex flex-col lg:w-1/3 lg:mx-10"
       >
         <h2 class="text-xl mb-2">Who am I?</h2>
 
@@ -39,15 +39,19 @@
         </NuxtLink>
       </div>
 
-      <p class="text-lg mt-2 text-gray-600">Learn more</p>
-      <NuxtLink
-        v-for="item in items"
-        :key="item"
-        class="underline text-gray-600"
-        :to="`/learn/${item}`"
-      >
-        {{ item }}
-      </NuxtLink>
+      <div class="flex flex-col mt-4 w-1/2">
+        <p class="text-lg mt-2 text-gray-600 mb-8">More about the Patterns</p>
+        <div class="flex flex-col lg:flex-row lg:flex-wrap">
+          <NuxtLink
+            v-for="item in items"
+            :key="item"
+            class="pattern-link"
+            :to="`/learn/${item}`"
+          >
+            {{ item }}
+          </NuxtLink>
+        </div>
+      </div>
     </div>
   </LearnScaffold>
 </template>
@@ -70,3 +74,15 @@ export default {
   }),
 }
 </script>
+
+<style lang="postcss" scoped>
+.pattern-link {
+  @apply underline text-gray-600 my-1;
+}
+
+@screen lg {
+  .pattern-link {
+    @apply py-1 px-4 m-2 bg-gray-600 text-white text-center rounded-full no-underline;
+  }
+}
+</style>
