@@ -44,7 +44,7 @@
         v-for="item in items"
         :key="item"
         class="underline text-gray-600"
-        :to="'/learn/${item}'"
+        :to="`/learn/${item}`"
       >
         {{ item }}
       </NuxtLink>
