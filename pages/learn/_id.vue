@@ -1,3 +1,3 @@
 <template>
-  <p>{{ $route.params.id }}</p>
+  <p>{{ $route.params.id }} - under construction</p>
 </template>
