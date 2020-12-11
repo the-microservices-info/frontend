@@ -1,14 +1,14 @@
 <template>
   <div>
-    <aside :class="sideMenuClasses">
-      <button class="btn btn-secondary self-end" @click="menuHidden = true">
-        close
-      </button>
+    <aside :class="sideMenuClasses" class="lg:w-56">
+      <div class="icon self-end lg:hidden" @click="menuHidden = true">
+        <CloseIcon class="h-full w-auto" />
+      </div>
     </aside>
     <main>
-      <button class="btn btn-secondary" @click="menuHidden = false">
-        menu
-      </button>
+      <div class="icon lg:hidden" @click="menuHidden = false">
+        <MenuIcon class="h-full w-auto" />
+      </div>
     </main>
   </div>
 </template>
@@ -38,11 +38,20 @@ export default {
         : base.concat(displayClasses)
     },
   },
+
+  created() {
+    const instance = this
+    setTimeout(() => (instance.menuHidden = true), 500)
+  },
 }
 </script>
 
 <style lang="postcss" scoped>
 aside {
   transition: all 0.75s ease;
+}
+
+.icon {
+  @apply p-3 h-12 w-12;
 }
 </style>
