@@ -1,6 +1,6 @@
 <template>
   <div>
-    <aside :class="sideMenuClasses" class="z-10 lg:w-56">
+    <aside :class="sideMenuClasses" class="z-10 lg:w-56 lg:pl-4">
       <div class="icon self-end lg:hidden" @click="menuHidden = true">
         <CloseIcon class="h-full w-auto" />
       </div>
