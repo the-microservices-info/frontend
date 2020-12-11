@@ -1,31 +1,61 @@
 <template>
   <div>
-    <aside :class="sideMenuClasses" class="lg:w-56">
+    <aside :class="sideMenuClasses" class="z-10 lg:w-56">
       <div class="icon self-end lg:hidden" @click="menuHidden = true">
         <CloseIcon class="h-full w-auto" />
       </div>
+
+      <NuxtLink class="underline text-gray-600" to="/">Home</NuxtLink>
+      <NuxtLink
+        v-if="showLearnMoreLink"
+        to="/learn"
+        class="underline text-gray-600"
+      >
+        Learn more
+      </NuxtLink>
+
+      <p class="text-lg mt-2 text-gray-600">More about the Patterns</p>
+      <NuxtLink
+        v-for="item in items"
+        :key="item"
+        class="underline text-gray-600 ml-4"
+        :to="`/learn/${item}`"
+      >
+        {{ item }}
+      </NuxtLink>
     </aside>
     <main>
-      <div class="icon lg:hidden" @click="menuHidden = false">
+      <div
+        class="icon bg-white sticky top-0 z-0 lg:hidden"
+        @click="menuHidden = false"
+      >
         <MenuIcon class="h-full w-auto" />
       </div>
+
+      <slot :items="items"></slot>
     </main>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data: () => ({
     menuHidden: false,
   }),
 
   computed: {
+    ...mapGetters({
+      patterns: 'metaPatterns',
+    }),
+
     sideMenuClasses() {
       const hiddenClasses = ['w-0', 'overflow-hidden']
-      const displayClasses = ['w-56']
+      const displayClasses = ['w-56', 'pl-4']
       const base = [
         'bg-white',
-        'absolute',
+        'fixed',
         'h-screen',
         'shadow-lg',
         'flex',
@@ -37,11 +67,19 @@ export default {
         ? base.concat(hiddenClasses)
         : base.concat(displayClasses)
     },
+
+    items() {
+      return this.patterns.map(({ name }) => name)
+    },
+
+    showLearnMoreLink() {
+      return this.$route.fullPath !== '/learn'
+    },
   },
 
   created() {
     const instance = this
-    setTimeout(() => (instance.menuHidden = true), 500)
+    setTimeout(() => (instance.menuHidden = !instance.menuHidden), 500)
   },
 }
 </script>
@@ -52,6 +90,6 @@ aside {
 }
 
 .icon {
-  @apply p-3 h-12 w-12;
+  @apply p-3 h-12 w-12 rounded-b-lg rounded-r-lg;
 }
 </style>
