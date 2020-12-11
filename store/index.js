@@ -56,14 +56,6 @@ const patterns = [
     imageSrc: require('@/assets/images/patterns/APIComposition.png'),
   },
   {
-    name: 'Service Registry',
-    paragraphs: [
-      `Create a service to keep track of addresses and copies of the rest of the services, providing an easy way to handle scalability.`,
-      `The creation of a database that stores the microservices locations instances facilitates the discovery of such instances. On the other hand, a service (Registry) dependency is created, increasing the coupling. Furthermore, in the case of Registry failure, the problem of (eventual) data consistency arises`,
-    ],
-    imageSrc: require('@/assets/images/patterns/ServiceRegistry.png'),
-  },
-  {
     name: 'Adapter Microservice',
     paragraphs: [
       `Place a new microservice in between two others to adapt the provided API into the expected API.`,
@@ -72,28 +64,12 @@ const patterns = [
     imageSrc: require('@/assets/images/patterns/AdapterMicroservice.png'),
   },
   {
-    name: 'Ambassador',
-    paragraphs: [
-      `Create a new microservice that acts as a proxy dedicated to monitoring, logging, and other cross-cutting concerns and peripheral functionalities.`,
-      `Peripheral functionalities are removed from the business logic process, which increases the dependency between microservices. On the other hand, the development process is favored since a microservice is created to act as a Proxy. This pattern can be considered to be a superset of the sidecar, the difference of which is that it does not necessarily follow the life cycle of the main application`,
-    ],
-    imageSrc: require('@/assets/images/patterns/Ambassador.png'),
-  },
-  {
     name: 'CQRS',
     paragraphs: [
       `Split reads and writes into separated services to possiblitate a better representation model for each operation. Each service can also scale independently from the other.`,
       `Increases scalability and decreases the coupling between microservices. However, it creates a new service responsible for the management of the historical database, which is shared with all microservices with "interest" in the domain, and which offers eventual consistency (since the Event Sourcing pattern is generally adopted in its implementation)`,
     ],
     imageSrc: require('@/assets/images/patterns/CQRS.png'),
-  },
-  {
-    name: 'Self-Contained Service',
-    paragraphs: [
-      `Put the service to listen to and store events related to all data it depends, so that when requested it can simply reply without any request to other microservices.`,
-      `By definition, it is a service that depends little on others, which reduces coupling but increases the microservices internal complexity`,
-    ],
-    imageSrc: require('@/assets/images/patterns/SelfContainedService.png'),
   },
 ]
 
