@@ -10,7 +10,7 @@
       <nuxt-link to="/survey" class="btn btn-primary">
         Take the Survey
       </nuxt-link>
-      <nuxt-link to="/" class="btn btn-secondary">
+      <nuxt-link to="/learn" class="btn btn-secondary">
         Learn more about microservices
       </nuxt-link>
     </div>
