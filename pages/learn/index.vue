@@ -66,7 +66,7 @@
             <span>{{ title }}</span>
             <span class="hidden lg:inline">- {{ authors.join(', ') }}</span>
           </a>
-          <div class="my-4">
+          <div v-if="suggestionsEnabled" class="my-4">
             <label for="book-suggestion">
               Any suggestion? Send me the book's title and authors!
             </label>
@@ -144,6 +144,13 @@ export default {
       },
     ],
   }),
+
+  computed: {
+    suggestionsEnabled() {
+      const envEnabled = process.env.ENABLE_BOOK_SUGGESTION
+      return Boolean(envEnabled) && envEnabled === 'true'
+    },
+  },
 
   methods: {
     suggestBook() {
