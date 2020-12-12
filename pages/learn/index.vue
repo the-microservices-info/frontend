@@ -66,9 +66,14 @@ export default {
         order: 1,
       },
       {
+        title: `SortingHat: a platform for documenting and recoverying software architecture of Microservices and SOA systems`,
+        route: '/learn/sorting-hat',
+        order: 2,
+      },
+      {
         title: 'Byron - an event-driven microservices framework',
         route: '/learn/byron',
-        order: 2,
+        order: 3,
       },
     ],
   }),
