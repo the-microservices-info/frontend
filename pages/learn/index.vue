@@ -40,16 +40,53 @@
       </div>
 
       <div class="flex flex-col mt-4 w-1/2">
-        <p class="text-lg mt-2 text-gray-600 mb-8">More about the Patterns</p>
+        <p class="text-lg mt-2 text-gray-600 mb-4">More about the Patterns</p>
         <div class="flex flex-col lg:flex-row lg:flex-wrap">
           <NuxtLink
             v-for="item in items"
             :key="item"
-            class="pattern-link"
+            class="link pattern-link"
             :to="`/learn/${item}`"
           >
             {{ item }}
           </NuxtLink>
+        </div>
+      </div>
+
+      <div class="flex flex-col mt-8 lg:w-2/5 lg:ml-10 lg:pr-10">
+        <p class="text-lg mt-2 text-gray-600 mb-4">Bookshelf</p>
+        <div class="flex flex-col">
+          <a
+            v-for="{ url, title, authors } of books"
+            :key="title"
+            :href="url"
+            class="link"
+            target="_blank"
+          >
+            <span>{{ title }}</span>
+            <span class="hidden lg:inline">- {{ authors.join(', ') }}</span>
+          </a>
+          <div class="my-4">
+            <label for="book-suggestion">
+              Any suggestion? Send me the book's title and authors!
+            </label>
+            <div
+              class="border border-gray-600 rounded-full pl-3 w-full mt-2 flex"
+            >
+              <input
+                id="book-suggestion"
+                v-model="bookSuggestion"
+                type="text"
+                class="outline-none w-full h-full px-1 py-2"
+              />
+              <button
+                class="px-4 font-bold text-white rounded-r-full bg-gray-600 focus:outline-none"
+                @click="suggestBook"
+              >
+                >
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -59,6 +96,8 @@
 <script>
 export default {
   data: () => ({
+    bookSuggestion: '',
+
     recentWork: [
       {
         title: `A Method for Architectural Trade-off Analysis Based on Patterns: Evaluating Microservices Structural Attributes`,
@@ -76,12 +115,47 @@ export default {
         order: 3,
       },
     ],
+
+    books: [
+      {
+        url: `https://www.manning.com/books/microservices-patterns?a_aid=microservices-patterns-chris&a_bid=2d6d8a4d`,
+        title: 'Microservices Patterns',
+        authors: ['Chris Richardson'],
+      },
+      {
+        url: `https://www.oreilly.com/library/view/building-microservices/9781491950340/`,
+        title: 'Building Microservices',
+        authors: ['Sam Newman'],
+      },
+      {
+        url: `https://www.oreilly.com/library/view/cloud-native-infrastructure/9781491984291/`,
+        title: 'Cloud Native Infrastructure',
+        authors: ['Justin Garrison', 'Kris Nova'],
+      },
+      {
+        url: `https://www.oreilly.com/library/view/effective-devops/9781491926291/`,
+        title: 'Effective DevOps',
+        authors: ['Jennifer Davis', 'Ryn Daniels'],
+      },
+      {
+        url: `https://www.oreilly.com/library/view/reactive-microsystems/9781491994368/`,
+        title: 'Reactive Microsystems',
+        authors: ['Jonas Bonér'],
+      },
+    ],
   }),
+
+  methods: {
+    suggestBook() {
+      console.log(this.bookSuggestion)
+      this.bookSuggestion = ''
+    },
+  },
 }
 </script>
 
 <style lang="postcss" scoped>
-.pattern-link {
+.link {
   @apply underline text-gray-600 my-1;
 }
 
