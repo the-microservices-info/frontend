@@ -8,14 +8,22 @@
         {{ subtitle }}
       </h1>
 
-      <div class="mt-4 w-full flex flex-col lg:flex-row lg:justify-around">
+      <div
+        class="mt-4 w-full flex flex-col lg:flex-row lg:justify-around lg:flex-wrap"
+      >
         <div
-          v-for="{ name, institution } of authors"
+          v-for="{ name, institutions } of authors"
           :key="name"
-          class="my-2 pl-1 border-0 border-l-4 rounded-md border-gray-600"
+          class="my-2 pl-2 border-0 border-l-4 lg:border-r-4 rounded-md border-gray-600 lg:w-2/5 lg:mx-auto"
         >
-          <p class="font-bold">{{ name }}</p>
-          <p class="text-sm">{{ institution }}</p>
+          <p class="lg:text-center font-bold">{{ name }}</p>
+          <p
+            v-for="inst in institutions"
+            :key="inst"
+            class="lg:text-center text-sm"
+          >
+            {{ inst }}
+          </p>
         </div>
       </div>
 
@@ -177,19 +185,22 @@ export default {
     authors: [
       {
         name: 'Thatiane Rosa',
-        institution: `University of São Paulo and Federal Institute of Tocantins`,
+        institutions: [
+          'University of São Paulo',
+          'Federal Institute of Tocantins',
+        ],
       },
       {
         name: 'João Daniel',
-        institution: 'University of São Paulo',
+        institutions: ['University of São Paulo'],
       },
       {
         name: 'Eduardo Guerra',
-        institution: 'Free University of Bozen-Bolzano',
+        institutions: ['Free University of Bozen-Bolzano'],
       },
       {
         name: 'Alfredo Goldman',
-        institution: 'University of São Paulo',
+        institutions: ['University of São Paulo'],
       },
     ],
     abstract: `Architectural patterns are powerful tools that assist software
