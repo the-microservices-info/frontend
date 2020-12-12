@@ -24,7 +24,7 @@
         {{ item }}
       </NuxtLink>
     </aside>
-    <main>
+    <main class="lg:pl-56">
       <div
         class="icon bg-white sticky top-0 z-0 lg:hidden"
         @click="menuHidden = false"
