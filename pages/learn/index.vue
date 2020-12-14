@@ -7,19 +7,20 @@
 
       <div class="content">
         <section>
-          <h2 class="text-gray-600">What are microservices?</h2>
+          <h2 class="text-gray-600 hidden lg:inline">
+            What are microservices?
+          </h2>
 
-          <p class="text-lg lg:text-sm text-center leading-relaxed">
-            Microservices is an <strong>architectural style</strong> on which
-            the system consists of a set of
-            <strong>services with fine-grained, well-defined scopes</strong>
-            that are <strong>autonomous</strong> and work together via
-            <strong>light-weight ways of communication</strong> benefitting each
-            other. This style emerged from <strong>DDD</strong>,
-            <strong>Continuous Delivery</strong>,
-            <strong>Hexagonal architecture</strong>, virtualization and
-            <strong>infrastructure automation</strong>, and
-            <strong>teams with full ownership</strong> of service's lifecycle.
+          <p
+            class="text-lg mt-4 lg:mt-0 lg:text-sm text-center leading-relaxed"
+          >
+            Microservices are an <strong>architectural style</strong> which
+            guides the application to be a set of services divided accordingly
+            to <strong>Bounded-Contexts</strong>. Each (micro) service is
+            <strong>autonomous</strong> (AKA has a low coupling level with
+            others), communicates through <strong>lightweigth means</strong>,
+            has a <strong>small team</strong> taking care of its full lifecycle,
+            and is <strong>independently deployed</strong>.
           </p>
         </section>
 
