@@ -45,5 +45,9 @@ export default {
     SURVEY_OPENED:
       Boolean(process.env.SURVEY_OPENED) &&
       process.env.SURVEY_OPENED === 'true',
+
+    BOOK_SUGGESTIONS:
+      Boolean(process.env.BOOK_SUGGESTIONS) &&
+      process.env.BOOK_SUGGESTIONS === 'true',
   },
 }

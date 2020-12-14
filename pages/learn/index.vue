@@ -201,14 +201,12 @@ export default {
 
   computed: {
     suggestionsEnabled() {
-      const envEnabled = process.env.ENABLE_BOOK_SUGGESTION
-      return Boolean(envEnabled) && envEnabled === 'true'
+      return process.env.BOOK_SUGGESTIONS
     },
   },
 
   methods: {
     suggestBook() {
-      console.log(this.bookSuggestion)
       this.bookSuggestion = ''
     },
   },
