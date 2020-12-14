@@ -34,7 +34,9 @@
 
       <slot :items="items"></slot>
     </main>
-    <footer class="h-40 mt-4 bg-gray-800 flex justify-center items-center">
+    <footer
+      class="h-40 mt-4 lg:ml-56 bg-gray-800 flex justify-center items-center"
+    >
       <NuxtLink to="/">
         <p class="text-gray-100 font-bold text-sm">The Microservices Info</p>
       </NuxtLink>
