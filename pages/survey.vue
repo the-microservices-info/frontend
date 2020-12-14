@@ -40,6 +40,7 @@ import MSPattern from '@/components/survey/pattern.vue'
 import PersonalInfo from '@/components/survey/personal_info.vue'
 
 export default {
+  middleware: 'surveyblock',
   components: {
     Introduction,
     BackgroundExperience,
