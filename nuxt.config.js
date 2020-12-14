@@ -1,5 +1,4 @@
 export default {
-  target: 'static',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'The Microservices Info',
@@ -41,4 +40,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  env: {
+    SURVEY_OPENED:
+      Boolean(process.env.SURVEY_OPENED) &&
+      process.env.SURVEY_OPENED === 'true',
+  },
 }
