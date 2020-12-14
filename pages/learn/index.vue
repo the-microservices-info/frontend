@@ -25,8 +25,8 @@
         </section>
 
         <section>
-          <h2 class="text-gray-600">More about the Patterns</h2>
-          <div class="flex flex-col lg:flex-row lg:flex-wrap">
+          <h2 class="text-gray-600">Microservice Patterns</h2>
+          <div class="flex flex-wrap justify-center lg:justify-start">
             <NuxtLink
               v-for="item in items"
               :key="item"
@@ -75,28 +75,46 @@
           </div>
         </section>
 
-        <section class="shadow-md rounded-lg p-4">
-          <h2 class="text-xl mb-2">Who am I?</h2>
-
-          <div class="flex min-h-40">
+        <section class="shadow-md rounded-lg p-4 larger">
+          <div class="flex flex-col lg:flex-row lg:items-stretch">
             <img
-              :src="require('@/assets/images/me.jpg')"
+              src="@/assets/images/me.jpg"
               alt="That's me!"
-              class="h-20 w-auto my-auto rounded mr-4"
+              class="h-32 mx-auto rounded-full lg:rounded-lg"
             />
 
-            <p class="px-1 text-justify">
-              My name is João Francisco, I'm a masters student in Computer
-              Science, at University of São Paulo.
-            </p>
+            <div
+              class="flex flex-col lg:justify-center mt-2 mx-0 lg:m-0 lg:mx-4"
+            >
+              <p class="text-center lg:text-left">
+                <strong>João Francisco</strong>
+              </p>
+
+              <p class="text-center mb-4 lg:text-left">
+                Master's Candidate @
+                <span class="hidden lg:inline">University of São Paulo</span>
+                <span class="lg:hidden">USP</span>
+              </p>
+
+              <p>
+                I study microservices since mid 2018. I have some experience in
+                teaching the subject, and there's a course up comming as part of
+                <a
+                  href="https://www.ime.usp.br/verao/index.php/turmas/descricao/393"
+                  class="link"
+                  target="_blank"
+                >
+                  <span class="lg:hidden">IME's</span>
+                  <span class="hidden lg:inline">
+                    Institute of Mathematics and Statistics'
+                  </span>
+                  summer school
+                </a>
+              </p>
+            </div>
           </div>
 
-          <p class="px-1 text-justify">
-            My work is about Microservices and I'm very fond of Software
-            Architecture.
-          </p>
-
-          <p class="text-lg mt-2">Recent work</p>
+          <p class="text-lg mt-4">Recent work</p>
           <NuxtLink
             v-for="{ title, route, order } of recentWork"
             :key="title"
@@ -116,6 +134,12 @@
   @apply underline text-gray-600 my-1;
 }
 
+.pattern-link {
+  @apply py-1 px-4 m-2;
+  @apply bg-gray-600 text-white text-sm;
+  @apply rounded-full no-underline;
+}
+
 .content {
   @apply flex flex-col justify-around;
 }
@@ -126,7 +150,7 @@
 }
 
 section > h2 {
-  @apply text-lg mt-2 mb-4;
+  @apply text-xl font-bold mt-2 mb-4;
 }
 
 strong {
@@ -134,16 +158,16 @@ strong {
 }
 
 @screen lg {
-  .pattern-link {
-    @apply py-1 px-4 m-2 bg-gray-600 text-white text-center rounded-full no-underline;
-  }
-
   .content {
     @apply flex-row flex-wrap;
   }
 
   .content > section {
     @apply w-2/5;
+  }
+
+  section.larger {
+    @apply w-full;
   }
 }
 </style>
