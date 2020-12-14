@@ -7,22 +7,24 @@
 
       <NuxtLink class="underline text-gray-600" to="/">Home</NuxtLink>
       <NuxtLink
-        v-if="showLearnMoreLink"
+        v-if="!isLearnHomepage"
         to="/learn"
         class="underline text-gray-600"
       >
         Learn more
       </NuxtLink>
 
-      <p class="text-lg mt-2 text-gray-600">More about the Patterns</p>
-      <NuxtLink
-        v-for="item in items"
-        :key="item"
-        class="underline text-gray-600 ml-4"
-        :to="`/learn/${item}`"
-      >
-        {{ item }}
-      </NuxtLink>
+      <div v-if="!isLearnHomepage" class="flex flex-col">
+        <p class="text-lg mt-2 text-gray-600">More about the Patterns</p>
+        <NuxtLink
+          v-for="item in items"
+          :key="item"
+          class="underline text-gray-600 ml-4"
+          :to="`/learn/${item}`"
+        >
+          {{ item }}
+        </NuxtLink>
+      </div>
     </aside>
     <main class="lg:pl-56">
       <div
@@ -79,8 +81,8 @@ export default {
       return this.patterns.map(({ name }) => name)
     },
 
-    showLearnMoreLink() {
-      return this.$route.fullPath !== '/learn'
+    isLearnHomepage() {
+      return this.$route.fullPath === '/learn'
     },
   },
 

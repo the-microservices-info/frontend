@@ -56,14 +56,6 @@ const patterns = [
     imageSrc: require('@/assets/images/patterns/APIComposition.png'),
   },
   {
-    name: 'Adapter Microservice',
-    paragraphs: [
-      `Place a new microservice in between two others to adapt the provided API into the expected API.`,
-      `A new microservice -- highly -- coupled with a legacy service is added. On the other hand, a new communication interface with the rest of the system is gained, which is more flexible and consistent with the microservices architectural style`,
-    ],
-    imageSrc: require('@/assets/images/patterns/AdapterMicroservice.png'),
-  },
-  {
     name: 'CQRS',
     paragraphs: [
       `Split reads and writes into separated services to possiblitate a better representation model for each operation. Each service can also scale independently from the other.`,
@@ -86,6 +78,14 @@ const patterns = [
       `When taking into account the heterogenity of external clients, such as mobile, desktop, and web clients, each type might have its own constaints of request time, protocols, and data. BFFs enable developers to provide a well-fit API for each type of client.`,
     ],
     imageSrc: require('@/assets/images/patterns/BFFs.png'),
+  },
+  {
+    name: 'Adapter Microservice',
+    paragraphs: [
+      `Place a new microservice in between two others to adapt the provided API into the expected API.`,
+      `A new microservice -- highly -- coupled with a legacy service is added. On the other hand, a new communication interface with the rest of the system is gained, which is more flexible and consistent with the microservices architectural style`,
+    ],
+    imageSrc: require('@/assets/images/patterns/AdapterMicroservice.png'),
   },
 ]
 
