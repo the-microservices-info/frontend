@@ -1,8 +1,8 @@
 <template>
   <LearnScaffold #default="{ items }">
     <div class="px-4 lg:mt-4 flex flex-col lg:flex-row lg:flex-wrap">
-      <h1 class="text-4xl text-center self-center w-screen">
-        Learn more about Microservices
+      <h1 class="text-4xl px-16 text-center self-center w-screen">
+        The Microservices Info
       </h1>
 
       <div class="content">
