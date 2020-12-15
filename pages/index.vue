@@ -1,10 +1,6 @@
 <template>
   <div class="container mx-auto h-screen flex flex-col justify-center">
-    <h1
-      class="mb-10 lg:mb-20 font-serif lg:w-1/3 mx-auto text-center font-bold text-5xl lg:text-6xl"
-    >
-      The Microservices Info
-    </h1>
+    <Logo class="mb-10 w-full px-4 lg:px-0 lg:w-2/3 lg:mx-auto" />
 
     <div class="mt-10 flex flex-col justify-center items-center">
       <nuxt-link to="/survey" :class="takeSurvey">Take the Survey</nuxt-link>
