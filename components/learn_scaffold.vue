@@ -101,4 +101,9 @@ aside {
 .icon {
   @apply p-3 h-12 w-12 rounded-b-lg rounded-r-lg;
 }
+
+footer {
+  @apply bg-fixed bg-center;
+  background-image: url('/Footer.png');
+}
 </style>
