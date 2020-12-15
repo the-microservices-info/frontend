@@ -24,15 +24,5 @@
 </template>
 
 <style lang="postcss" scoped>
-section > ul {
-  @apply list-disc list-inside;
-}
-
-li {
-  @apply my-2;
-}
-
-strong {
-  @apply text-gray-600 text-xl;
-}
+@import '~/assets/css/pattern_page.css';
 </style>
