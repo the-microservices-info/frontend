@@ -18,7 +18,10 @@
 
     <SubsectionDivider />
 
-    <Question question="Is this pattern adopted in your system?" required>
+    <Question
+      question="Is this pattern adopted in a system you work on?"
+      required
+    >
       <div class="option">
         <input
           :id="idOf('used-true')"

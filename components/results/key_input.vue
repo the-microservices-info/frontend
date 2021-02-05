@@ -69,26 +69,20 @@ export default {
           { params: { key: this.passkey } }
         )
 
-        const serviceRegistry = await this.$axios.get(
-          '/answers/serviceRegistry',
-          { params: { key: this.passkey } }
-        )
-
-        const adapterMicroservice = await this.$axios.get(
-          '/answers/adapterMicroservice',
-          { params: { key: this.passkey } }
-        )
-
-        const ambassador = await this.$axios.get('/answers/ambassador', {
-          params: { key: this.passkey },
-        })
-
         const cqrs = await this.$axios.get('/answers/cqrs', {
           params: { key: this.passkey },
         })
 
-        const selfContainedService = await this.$axios.get(
-          '/answers/selfContainedService',
+        const apiGateway = await this.$axios.get('/answers/apiGateway', {
+          params: { key: this.passkey },
+        })
+
+        const bff = await this.$axios.get('/answers/bff', {
+          params: { key: this.passkey },
+        })
+
+        const adapterMicroservice = await this.$axios.get(
+          '/answers/adapterMicroservice',
           { params: { key: this.passkey } }
         )
 
@@ -103,12 +97,10 @@ export default {
           domainEvent: domainEvent.data['Domain Event'],
           transactionalOutbox: transactionalOutbox.data['Transactional Outbox'],
           apiComposition: apiComposition.data['API Composition'],
-          serviceRegistry: serviceRegistry.data['Service Registry'],
           adapterMicroservice: adapterMicroservice.data['Adapter Microservice'],
-          ambassador: ambassador.data.Ambassador,
           cqrs: cqrs.data.CQRS,
-          selfContainedService:
-            selfContainedService.data['Self-Contained Service'],
+          bff: bff.data.BFF,
+          apiGateway: apiGateway.data['API Gateway'],
         })
       } catch (e) {
         this.$emit('unauthorized')
