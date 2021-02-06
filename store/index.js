@@ -18,7 +18,7 @@ const patterns = [
   {
     name: 'Event Sourcing',
     paragraphs: [
-      `Handle the state of the system as streams of events that mark every change over the time, making possible to query events and access historical data to recover from failures.`,
+      `Handle the state of the system as streams of events that mark every change over the time, making it possible to sustain atomicity while also keeping data persistence.`,
       `Instead of storing the current state of an object in the database, we store the sequence of append-only, immutable events that affected that object. Current state is obtained by replaying events, and we do so to provide a “query view” of the data.`,
     ],
     imageSrc: require('@/assets/images/patterns/EventSourcing.png'),
