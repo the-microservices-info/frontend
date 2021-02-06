@@ -19,6 +19,13 @@
       <p class="text-lg">Level of Knowledge</p>
       <Pie :input="backgroundExperience.years" class="chart" />
     </div>
+
+    <div class="card">
+      <p class="text-lg">Get the data as JSON</p>
+      <button class="btn btn-primary" @click="$emit('download')">
+        Download
+      </button>
+    </div>
   </div>
 </template>
 
