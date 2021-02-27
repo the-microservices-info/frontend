@@ -7,7 +7,7 @@
 
     <div class="card">
       <p class="text-lg">Years of Experience</p>
-      <Bar :input="knowledgeLevel" class="chart" />
+      <Bar :input="backgroundExperience.years" class="chart" />
     </div>
 
     <div class="card">
@@ -17,7 +17,7 @@
 
     <div class="card">
       <p class="text-lg">Level of Knowledge</p>
-      <Pie :input="backgroundExperience.years" class="chart" />
+      <Pie :input="knowledgeLevel" class="chart" />
     </div>
   </div>
 </template>
