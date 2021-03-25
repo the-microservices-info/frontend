@@ -17,6 +17,7 @@
       <General
         :answers="answers"
         :background-experience="backgroundExperience"
+        @download="download"
       />
     </div>
 
@@ -88,6 +89,16 @@ export default {
         BFF: pl.bff,
         'Adapter Microservice': pl.adapterMicroservice,
       }[tab]
+    },
+    download() {
+      const link = document.createElement('a')
+      const blob = new Blob([JSON.stringify(this.payload)], {
+        type: 'application/json',
+      })
+
+      link.href = window.URL.createObjectURL(blob)
+      link.download = 'survey_results.json'
+      link.click()
     },
   },
 }
