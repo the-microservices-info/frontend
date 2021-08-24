@@ -105,15 +105,6 @@ const initialState = {
       years: undefined,
     },
   },
-
-  personalInformation: {
-    isValid: true,
-    questions: {
-      name: '',
-      email: '',
-      available: undefined,
-    },
-  },
 }
 
 patterns
@@ -200,10 +191,6 @@ export const mutations = {
   },
   setPatternValid(s, { name, valid }) {
     s[name].isValid = valid
-  },
-
-  setPerson(s, person) {
-    s.personalInformation.questions = { ...person }
   },
 
   resetState(s) {
