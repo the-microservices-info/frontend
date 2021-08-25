@@ -18,8 +18,6 @@
         :image-src="imageSrc"
       />
 
-      <PersonalInfo />
-
       <div class="mt-4 flex justify-center items-center">
         <button :class="btnClasses" :disabled="btnDisabled" @click="submit()">
           Submit
@@ -37,7 +35,6 @@ import { mapGetters, mapMutations } from 'vuex'
 import Introduction from '@/components/survey/introduction.vue'
 import BackgroundExperience from '@/components/survey/background_experience.vue'
 import MSPattern from '@/components/survey/pattern.vue'
-import PersonalInfo from '@/components/survey/personal_info.vue'
 
 export default {
   middleware: 'surveyblock',
@@ -45,7 +42,6 @@ export default {
     Introduction,
     BackgroundExperience,
     MSPattern,
-    PersonalInfo,
   },
   data: () => ({
     submitting: false,
