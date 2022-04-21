@@ -42,7 +42,6 @@ import BackgroundExperience from '@/components/survey/background_experience.vue'
 import MSPattern from '@/components/survey/pattern.vue'
 
 export default {
-  middleware: 'surveyblock',
   components: {
     Introduction,
     BackgroundExperience,
