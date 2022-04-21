@@ -56,3 +56,11 @@ strong {
   @apply text-gray-600 text-xl;
 }
 </style>
+
+<script>
+import PatternPage from '@/components/learn/pattern_page.vue'
+
+export default {
+  components: { PatternPage },
+}
+</script>

@@ -39,3 +39,11 @@
 <style lang="postcss" scoped>
 @import '~/assets/css/pattern_page.css';
 </style>
+
+<script>
+import PatternPage from '@/components/learn/pattern_page.vue'
+
+export default {
+  components: { PatternPage },
+}
+</script>
