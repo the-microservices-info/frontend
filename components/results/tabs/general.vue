@@ -47,18 +47,20 @@ export default {
     },
     knowledgeSource() {
       return {
-        'Written material': this.backgroundExperience.knowledgeSource[
-          'Books, blog posts or written tutorials'
-        ],
-        'With courses': this.backgroundExperience.knowledgeSource[
-          'Professional course, workshop or conference tutorial'
-        ],
-        'Other people': this.backgroundExperience.knowledgeSource[
-          'A collegue or consultant'
-        ],
-        'By myself': this.backgroundExperience.knowledgeSource[
-          'Learned on the job by myself'
-        ],
+        'Written material':
+          this.backgroundExperience.knowledgeSource[
+            'Books, blog posts or written tutorials'
+          ],
+        'With courses':
+          this.backgroundExperience.knowledgeSource[
+            'Professional course, workshop or conference tutorial'
+          ],
+        'Other people':
+          this.backgroundExperience.knowledgeSource['A collegue or consultant'],
+        'By myself':
+          this.backgroundExperience.knowledgeSource[
+            'Learned on the job by myself'
+          ],
       }
     },
   },

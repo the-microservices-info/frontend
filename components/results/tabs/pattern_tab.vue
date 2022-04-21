@@ -64,12 +64,12 @@ export default {
 
     knowledgeType() {
       return {
-        'As a pattern': this.patternData.knowledgeType[
-          'Yes, I knew as a pattern'
-        ],
-        'As a practice': this.patternData.knowledgeType[
-          "I recognize it as a practice, but I didn't know it was a pattern"
-        ],
+        'As a pattern':
+          this.patternData.knowledgeType['Yes, I knew as a pattern'],
+        'As a practice':
+          this.patternData.knowledgeType[
+            "I recognize it as a practice, but I didn't know it was a pattern"
+          ],
         "Didn't know": this.patternData.knowledgeType["I didn't know"],
       }
     },

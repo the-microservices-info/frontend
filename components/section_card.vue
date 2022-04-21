@@ -21,13 +21,9 @@ export default {
 
   computed: {
     cardClasses() {
-      const base = [
-        'rounded-lg',
-        'shadow-lg',
-        'p-4',
-        'mt-6',
-        'card-bg',
-      ].concat([`${this.status}-outline`, 'border-4'])
+      const base = ['rounded-lg', 'shadow-lg', 'p-4', 'mt-6', 'card-bg'].concat(
+        [`${this.status}-outline`, 'border-4']
+      )
 
       return base
     },
