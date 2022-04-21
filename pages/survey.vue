@@ -19,7 +19,12 @@
       />
 
       <div class="mt-4 flex justify-center items-center">
-        <button :class="btnClasses" :disabled="btnDisabled" @click="submit()">
+        <button
+          :class="btnClasses"
+          :disabled="true"
+          :title="closeMessage"
+          @click="submit()"
+        >
           Submit
         </button>
 
@@ -45,6 +50,7 @@ export default {
   },
   data: () => ({
     submitting: false,
+    closeMessage: `This questionnaire has been closed and this page is only available for visibility reasons.`,
   }),
   computed: {
     ...mapGetters({
@@ -62,20 +68,8 @@ export default {
   },
   methods: {
     ...mapMutations(['resetState']),
-    async submit() {
-      let nextRoute
-      try {
-        this.submitting = true
-        await this.$axios.$post('/answers', this.answers)
-        nextRoute = '/success'
-      } catch (e) {
-        nextRoute = '/oops'
-      } finally {
-        this.submitting = false
-
-        this.resetState()
-        this.$router.replace(nextRoute)
-      }
+    submit() {
+      alert(this.closeMessage)
     },
   },
 }
